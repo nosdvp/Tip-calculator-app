@@ -1,0 +1,84 @@
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c5e4e7;
+  width: 100%;
+  height: 100vh;
+}
+
+.mainContainer{
+  width: 1300px;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContainer_title{
+  width: 100%;
+  height: 13vh;
+  background-image: url(./img/logo.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.mainContainer_filling{
+  flex: 1;
+  width: 90%;
+  height: 100%;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainContainer_filling_content{
+  width: 98%;
+  height: 90%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.mainContainer_filling_content_data{
+  border: 1px solid red;
+  width: 90%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.mainContainer_filling_content_calc{
+  width: 90%;
+  overflow: hidden;
+  margin: 0 auto;
+  background-color: #00474a;
+  border-radius: 20px;
+}
+
+@media (max-width: 1440px) {
+  .mainContainer{
+    width: 1024px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mainContainer{
+    width: 97%;
+    height: 70vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContainer{
+    width: 97%;
+    height: 90vh;
+  }
+
+  .mainContainer_filling_content{
+  grid-template-columns: 1fr;
+}
+}
