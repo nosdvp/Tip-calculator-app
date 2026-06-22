@@ -4,6 +4,12 @@
   font-family: 'Space Mono', 'Courier New', monospace;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .App {
   display: flex;
   align-items: center;
@@ -55,6 +61,53 @@
   width: 90%;
   overflow: hidden;
   margin: 0 auto;
+  padding: 5px;
+}
+
+.mainContainer_filling_content_data_bill{
+  font-weight:bold; 
+  color: #6b8081;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.mainContainer_filling_content_data_inputBill{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f3f8fb;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.mainContainer_filling_content_data_inputBill:focus-within{
+  border-color: #00433d;
+}
+
+.mainContainer_filling_content_data_inputBill_img{
+  background-image: url('./img/icon-dollar.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 13px;
+  width: 50px;
+  height: 50px;
+  
+}
+
+.mainContainer_filling_content_data_inputBill_input{
+  border: none;
+  outline: none;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #f3f8fb;
+  text-align: end;
+  color: #044447;
+  width: 95%;
+  height: 30px;
+  cursor: pointer;
 }
 
 .mainContainer_filling_content_calc{
@@ -158,7 +211,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   .mainContainer{
     width: 97%;
     height: 90vh;

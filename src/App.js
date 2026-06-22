@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import { ReactComponent as DollarIcon } from './img/icon-dollar.svg';
-import imgHuman from './img/icon-person.svg'
+import { ReactComponent as imgHuman} from './img/icon-person.svg'
 
 function App() {
 
@@ -10,9 +10,24 @@ function App() {
   const [numberOfPeople, setNumberOfPeople] = useState();
   const [tipAmount, setTipAmount] = useState(0);
   const [total, setTotal] = useState(0);
+  const [startBill, setStartBill] = useState(0);
+  const [selectedTip, setSelectedTip] = useState(0);
+  const [numbersOfPeople, setNumbersOfPeople] = useState(0);
 
   const culc = () =>{
-    
+    /*Здесь будем считать*/
+  }
+
+  const changeState = () => {
+    if(startBill === 0){
+      setStartBill('')
+    }
+  }
+
+  const backDefault = () => {
+    if(startBill === ''){
+      setStartBill(0)
+    }
   }
 
   return (
@@ -21,7 +36,22 @@ function App() {
         <div className='mainContainer_title'></div>
         <div className='mainContainer_filling'>
           <div className='mainContainer_filling_content'>
-            <div className='mainContainer_filling_content_data'></div>
+            <div className='mainContainer_filling_content_data'>
+              <div className='mainContainer_filling_content_data_bill'>Bill</div>
+              <div className='mainContainer_filling_content_data_inputBill'>
+                <div className='mainContainer_filling_content_data_inputBill_img'></div>
+                <div>
+                  <input
+                    className={'mainContainer_filling_content_data_inputBill_input'}
+                    type='number'
+                    value={startBill}
+                    onChange={(e) => setStartBill(e.target.value)}
+                    onFocus={changeState}
+                    onBlur={backDefault}
+                  ></input>
+                </div>
+              </div>
+            </div>
             <div className='mainContainer_filling_content_calc'>
               <div className='mainContainer_filling_content_calc_finalRes'>
                 <div className='mainContainer_filling_content_calc_finalRes_tipAmount'>
