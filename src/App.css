@@ -4,220 +4,79 @@
   font-family: 'Space Mono', 'Courier New', monospace;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.App {
+.App{
+  background-color: #c5e4e7;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #c5e4e7;
   width: 100%;
   height: 100vh;
 }
 
-.mainContainer{
+.wrapper{
   width: 1300px;
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.mainContainer_title{
-  width: 100%;
-  height: 13vh;
-  background-image: url(./img/logo.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.mainContainer_filling{
-  flex: 1;
-  width: 90%;
-  height: 100%;
-  background-color: white;
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mainContainer_filling_content{
-  width: 98%;
-  height: 90%;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.mainContainer_filling_content_data{
+  height: 75%;
   border: 1px solid red;
-  width: 90%;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleImg{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
+.contentBlock{
+  width: 100%;
+  height: 85%;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   margin: 0 auto;
-  padding: 5px;
 }
 
-.mainContainer_filling_content_data_bill{
-  font-weight:bold; 
-  color: #6b8081;
-  font-size: 20px;
-  margin-bottom: 10px;
+.content-IncomeData,
+.content-BlockCulc{
+  width: 40%; 
+  height: 85%;
+  border: 1px solid red;
+  border-radius: 30px;
 }
 
-.mainContainer_filling_content_data_inputBill{
-  width: 100%;
-  height: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #f3f8fb;
-  border: 2px solid transparent;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.mainContainer_filling_content_data_inputBill:focus-within{
-  border-color: #00433d;
-}
-
-.mainContainer_filling_content_data_inputBill_img{
-  background-image: url('./img/icon-dollar.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 13px;
-  width: 50px;
-  height: 50px;
-  
-}
-
-.mainContainer_filling_content_data_inputBill_input{
-  border: none;
-  outline: none;
-  font-size: 30px;
-  font-weight: bold;
-  background-color: #f3f8fb;
-  text-align: end;
-  color: #044447;
-  width: 95%;
-  height: 30px;
-  cursor: pointer;
-}
-
-.mainContainer_filling_content_calc{
-  width: 90%;
-  overflow: hidden;
-  margin: 0 auto;
-  background-color: #00474a;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.mainContainer_filling_content_calc_finalRes{
-  width: 80%;
-  height: 40%;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.mainContainer_filling_content_calc_finalRes_tipAmount{
-  width: 100%;
-  height: 50%;
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 20px;
-}
-
-.mainContainer_filling_content_calc_finalRes_tipAmount_description{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-}
-
-.mainContainer_filling_content_calc_finalRes_tipAmount_amount{
+.content-BlockCulc{
+  background-color: #00474b;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.mainContainer_filling_content_calc_finalRes_total{
-  width: 100%;
-  height: 50%;
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 20px;
+@media (max-width:1440px){
+  .wrapper{
+    width: 90%
+  }
 }
 
-.mainContainer_filling_content_calc_finalRes_total_description{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
+@media (max-width:1024px){
+  .wrapper{
+    width: 95%
+  }
 }
 
-.mainContainer_filling_content_calc_finalRes_total_amount{
-  display: flex;
-  justify-content: center;
-}
-
-.mainContainer_filling_content_calc_button{
-  width: 80%;
-  height: 12%;
-  margin-bottom: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.resetButton{
-  width: 100%;
+@media (max-width:900px){
+  .contentBlock{
+    flex-direction: column;
+  }
+  .content-IncomeData,
+  .content-BlockCulc{
+  width: 90%; 
   height: 100%;
-  font-size: 28px;
-  font-weight: bold;
-  border-radius: 5px;
-  background-color: #0d686d;
-  color: #00433d;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
-.resetButton:hover{
-  background-color: #9fe8df;
-}
-
-@media (max-width: 1440px) {
-  .mainContainer{
-    width: 1024px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .mainContainer{
-    width: 97%;
-    height: 70vh;
-  }
-}
-
-@media (max-width: 950px) {
-  .mainContainer{
-    width: 97%;
-    height: 90vh;
-  }
-
-  .mainContainer_filling_content{
-  grid-template-columns: 1fr;
+  border: 1px solid red
 }
 }
