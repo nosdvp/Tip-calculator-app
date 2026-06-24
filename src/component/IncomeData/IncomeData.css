@@ -1,0 +1,120 @@
+.IncomeData-wrapper{
+    width: 85%;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.IncomeData-bill,
+.IncomeData-tip,
+.IncomeData-numOfPeople{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /*border: 1px solid blue*/
+}
+
+.IncomeData-bill-title,
+.IncomeData-tip-text,
+.IncomeData-numOfPeople-text{
+    color: #8f9d9e;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.IncomeData-numOfPeople-blockMess,
+.IncomeData-bill-blockMess{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.IncomeData-numOfPeople-text-errMess,
+.IncomeData-bill-text-errMess{
+    color: #e06f57;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.IncomeData-numOfPeople-blockInputData,
+.IncomeData-bill-blockInputData{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 99%;
+    height: 50px;
+    background-color: #f3f8fb;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid #f3f8fb;
+}
+
+.IncomeData-numOfPeople-blockInputData:focus-within{
+    border: 2px solid #5da99f;
+}
+
+.IncomeData-numOfPeople-blockInputData-error,
+.IncomeData-bill-blockInputData-error{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 99%;
+    height: 50px;
+    background-color: #f3f8fb;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid #e06f57;
+}
+
+.IncomeData-numOfPeople-blockInputData-blockImg,
+.IncomeData-bill-blockInputData-blockImg{
+    width: 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.IncomeData-numOfPeople-blockInputData-blockImg-img,
+.IncomeData-bill-blockInputData-blockImg-img{
+    width: 18px;
+    height: 22px;
+}
+
+.IncomeData-numOfPeople-blockInputData-input{
+    font-size: 35px;
+    text-align: end;
+    width: 100px;
+    height: 45px;
+    border: none;
+    outline: none;
+    color: #084342;
+    font-weight: bold;
+    background-color: transparent;
+    /*border: 1px solid red*/
+}
+
+.IncomeData-bill-blockInputData-input{
+    font-size: 35px;
+    text-align: end;
+    width: 200px;
+    height: 45px;
+    border: none;
+    outline: none;
+    color: #084342;
+    font-weight: bold;
+    background-color: transparent;
+    /*border: 1px solid red*/
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
