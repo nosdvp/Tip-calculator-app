@@ -9,6 +9,8 @@ const IncomeData = () => {
   const [messErrorPeople, setMessErrorPeople] = useState(false);
   const [bill, setBill] = useState('');
   const [people, setPeople] = useState('');
+  const [tip, setTip] = useState(0)
+  
 
   const checkValidAmount = (e) => {
     const value = e.target.value
@@ -37,7 +39,7 @@ const IncomeData = () => {
       <div className='IncomeData-bill'>
         <div className='IncomeData-bill-blockMess'>
           <div className='IncomeData-bill-title'>Bill</div>
-          <div className='IncomeData-bill-text-errMess'>{messErrorBill ? `Can't be zero` : '' }</div>
+          <div className='IncomeData-bill-text-errMess'>{messErrorBill ? `Enter amount bill` : '' }</div>
         </div>
         <div className={messErrorBill ? 'IncomeData-bill-blockInputData-error' : 'IncomeData-bill-blockInputData'}>
           <div className='IncomeData-bill-blockInputData-blockImg'>
@@ -56,8 +58,22 @@ const IncomeData = () => {
       </div>
       <div className='IncomeData-tip'>
         <div className='IncomeData-tip-text'>Select Tip %</div>
-        <div className=''>
-          <div>здесь кнопуи чаевых</div>
+        <div className='IncomeData-tip-text-blockTip'>
+          <div className='IncomeData-tip-text-blockTip-tips'>
+            <div className='IncomeData-tip-text-blockTip-tips-buttons'>5%</div>
+            <div className='IncomeData-tip-text-blockTip-tips-buttons'>10%</div>
+            <div className='IncomeData-tip-text-blockTip-tips-buttons'>15%</div>
+          </div>
+          <div className='IncomeData-tip-text-blockTip-tips'>
+            <div className='IncomeData-tip-text-blockTip-tips-buttonsSecondLine'>25%</div>
+            <div className='IncomeData-tip-text-blockTip-tips-buttonsSecondLine'>50%</div>
+            <div className='IncomeData-tip-text-blockTip-tips-inputTip'>
+              <input
+                className='IncomeData-tip-text-blockTip-tips-inputTip-input'
+                placeholder='Tip'
+              ></input>
+            </div>
+          </div>
         </div>
       </div>
       <div className='IncomeData-numOfPeople'>

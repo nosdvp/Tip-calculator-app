@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    /*border: 1px solid blue*/
+    border: 1px solid blue
 }
 
 .IncomeData-bill-title,
@@ -118,3 +118,86 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
+.IncomeData-tip-text-blockTip{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid yellow
+}
+
+.IncomeData-tip-text-blockTip-tips{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.IncomeData-tip-text-blockTip-tips-buttons{
+    width: 30%;
+    height: 50px;
+    background-color: #084342;
+    border-radius: 5px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+    border: 2px solid #084342
+}
+
+.IncomeData-tip-text-blockTip-tips-buttonsSecondLine{
+    width: 30%;
+    height: 50px;
+    background-color: #084342;
+    border-radius: 5px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid #084342
+}
+
+.IncomeData-tip-text-blockTip-tips-buttons:hover,
+.IncomeData-tip-text-blockTip-tips-buttonsSecondLine:hover{
+    background-color: #9ee8df;
+    color: #084342;
+    cursor: pointer;
+    border: 2px solid #9ee8df;
+}
+
+.IncomeData-tip-text-blockTip-tips-inputTip{
+    width: 30%;
+    height: 50px;
+    background-color: #f3f8fb;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #f3f8fb
+}
+
+.IncomeData-tip-text-blockTip-tips-inputTip-input{
+    width: 100%;
+    height: 43px;
+    text-align: end;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #084342;
+    margin: 0 10px 0 0;
+}
+
+.IncomeData-tip-text-blockTip-tips-inputTip:focus-within{
+    border: 2px solid #5faaa1;
+}
