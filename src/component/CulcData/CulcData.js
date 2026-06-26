@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import './CulcData.css'
 
-export const CulcData = () => {
-
-    const [tipAmount, setTipAmount] = useState(0)
-    const [total, setTotal] = useState(0)
+export const CulcData = ({
+  reset, 
+  tipAmount, 
+  total
+}) => {
 
   return (
     <div className='dataWrapper'>
@@ -16,8 +17,7 @@ export const CulcData = () => {
                         <div className='dataWrapper-blocks-dataInfo-tipAmount-secondLine'>/ person</div>
                     </div>
                     <div>
-                        <span>${tipAmount.toFixed(2)}</span>
-                        
+                        <span>${tipAmount.toFixed(2)}</span> 
                     </div>
                 </div>
                 <div className='dataWrapper-blocks-dataInfo-totalAmount'>
@@ -27,12 +27,11 @@ export const CulcData = () => {
                     </div>
                     <div>
                         <span>${total.toFixed(2)}</span>
-                        
                     </div>
                 </div>
             </div>
             <div className='dataWrapper-blocks-button'>
-                <button>RESET</button>
+                <button onClick={reset}>RESET</button>
             </div>
         </div>
     </div>

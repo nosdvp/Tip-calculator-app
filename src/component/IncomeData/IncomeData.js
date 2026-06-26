@@ -1,50 +1,74 @@
-import React, { useState } from 'react'
-import './IncomeData.css'
-import dollar from '../../img/icon-dollar.svg'
-import persom from '../../img/icon-person.svg'
+import React, { useState } from 'react';
+import './IncomeData.css';
+import dollar from '../../img/icon-dollar.svg';
+import persom from '../../img/icon-person.svg';
 
-const IncomeData = () => {
+const IncomeData = ({
+  bill,
+  setBill,
+  people,
+  setPeople,
+  customTip,
+  setCustomTip,
+  setTipAmount,
+  setTotalAmount
+}) => {
 
   const [messErrorBill, setMessErrorBill] = useState(false);
   const [messErrorPeople, setMessErrorPeople] = useState(false);
-  const [bill, setBill] = useState('');
-  const [people, setPeople] = useState('');
-  const [tip, setTip] = useState(0)
-  
 
   const checkValidAmount = (e) => {
-    const value = e.target.value
-    setBill(value)
+    const value = e.target.value;
+    setBill(value);
 
-    if(value === '0'){
-      setMessErrorBill(true)
-    }else{
-      setMessErrorBill(false)
+    if (value === '0') {
+      setMessErrorBill(true);
+    } else {
+      setMessErrorBill(false);
     }
-  }
+  };
 
   const checkValidPeople = (e) => {
     const value = e.target.value;
     setPeople(value);
 
-    if(value === '0'){
-      setMessErrorPeople(true)
-    }else{
-      setMessErrorPeople(false)
+    if (value === '0') {
+      setMessErrorPeople(true);
+    } else {
+      setMessErrorPeople(false);
     }
-  }
+  };
+
+  const calcTip = (tip) => {
+    if (!bill || !people || Number(people) === 0) return;
+
+    const percent = tip / 100;
+
+    const tipPerPerson =
+      (Number(bill) * percent) / Number(people);
+
+    const totalPerPerson =
+      Number(bill) / Number(people) + tipPerPerson;
+
+    setTipAmount(tipPerPerson);
+    setTotalAmount(totalPerPerson);
+  };
 
   return (
     <div className='IncomeData-wrapper'>
       <div className='IncomeData-bill'>
         <div className='IncomeData-bill-blockMess'>
           <div className='IncomeData-bill-title'>Bill</div>
-          <div className='IncomeData-bill-text-errMess'>{messErrorBill ? `Enter amount bill` : '' }</div>
+          <div className='IncomeData-bill-text-errMess'>
+            {messErrorBill ? 'Enter amount bill' : ''}
+          </div>
         </div>
+
         <div className={messErrorBill ? 'IncomeData-bill-blockInputData-error' : 'IncomeData-bill-blockInputData'}>
           <div className='IncomeData-bill-blockInputData-blockImg'>
-            <img className='IncomeData-bill-blockInputData-blockImg-img' src={dollar}></img>
+            <img className='IncomeData-bill-blockInputData-blockImg-img' src={dollar} alt=""/>
           </div>
+
           <div>
             <input
               value={bill}
@@ -52,38 +76,50 @@ const IncomeData = () => {
               onChange={checkValidAmount}
               placeholder='0.00'
               className='IncomeData-bill-blockInputData-input'
-            ></input>
+            />
           </div>
         </div>
       </div>
+
       <div className='IncomeData-tip'>
         <div className='IncomeData-tip-text'>Select Tip %</div>
+
         <div className='IncomeData-tip-text-blockTip'>
           <div className='IncomeData-tip-text-blockTip-tips'>
-            <div className='IncomeData-tip-text-blockTip-tips-buttons'>5%</div>
-            <div className='IncomeData-tip-text-blockTip-tips-buttons'>10%</div>
-            <div className='IncomeData-tip-text-blockTip-tips-buttons'>15%</div>
+            <div className='IncomeData-tip-text-blockTip-tips-buttons' onClick={() => calcTip(5)}>5%</div>
+            <div className='IncomeData-tip-text-blockTip-tips-buttons' onClick={() => calcTip(10)}>10%</div>
+            <div className='IncomeData-tip-text-blockTip-tips-buttons' onClick={() => calcTip(15)}>15%</div>
           </div>
+
           <div className='IncomeData-tip-text-blockTip-tips'>
-            <div className='IncomeData-tip-text-blockTip-tips-buttonsSecondLine'>25%</div>
-            <div className='IncomeData-tip-text-blockTip-tips-buttonsSecondLine'>50%</div>
+            <div className='IncomeData-tip-text-blockTip-tips-buttonsSecondLine' onClick={() => calcTip(25)}>25%</div>
+            <div className='IncomeData-tip-text-blockTip-tips-buttonsSecondLine' onClick={() => calcTip(50)}>50%</div>
             <div className='IncomeData-tip-text-blockTip-tips-inputTip'>
               <input
                 className='IncomeData-tip-text-blockTip-tips-inputTip-input'
                 placeholder='Tip'
-              ></input>
+                type='number'
+                value={customTip}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setCustomTip(value);
+                  calcTip(Number(value));
+                }}
+              />
             </div>
           </div>
         </div>
       </div>
+
       <div className='IncomeData-numOfPeople'>
         <div className='IncomeData-numOfPeople-blockMess'>
           <div className='IncomeData-numOfPeople-text'>Number of People</div>
-          <div className='IncomeData-numOfPeople-text-errMess'>{messErrorPeople ? `Can't be zero` : '' }</div>
+          <div className='IncomeData-numOfPeople-text-errMess'>{messErrorPeople ? "Can't be zero" : ''}</div>
         </div>
+
         <div className={messErrorPeople ? 'IncomeData-numOfPeople-blockInputData-error' : 'IncomeData-numOfPeople-blockInputData'}>
           <div className='IncomeData-numOfPeople-blockInputData-blockImg'>
-            <img className='IncomeData-numOfPeople-blockInputData-blockImg-img' src={persom}></img>
+            <img className='IncomeData-numOfPeople-blockInputData-blockImg-img' src={persom} alt=""/>
           </div>
           <div>
             <input
@@ -92,12 +128,12 @@ const IncomeData = () => {
               onChange={checkValidPeople}
               placeholder='0'
               className='IncomeData-numOfPeople-blockInputData-input'
-            ></input>
+            />
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default IncomeData
+export default IncomeData;
