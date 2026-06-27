@@ -14,8 +14,9 @@ const IncomeData = ({
   setTotalAmount
 }) => {
 
-  const [messErrorBill, setMessErrorBill] = useState(false);
   const [messErrorPeople, setMessErrorPeople] = useState(false);
+  const [peopleRequired, setPeopleRequired] = useState(false);
+  const [messErrorBill, setMessErrorBill] = useState(false);
 
   const checkValidAmount = (e) => {
     const value = e.target.value;
@@ -37,10 +38,25 @@ const IncomeData = ({
     } else {
       setMessErrorPeople(false);
     }
+
+    if (value !== '') {
+      setPeopleRequired(false);
+    }
   };
 
   const calcTip = (tip) => {
-    if (!bill || !people || Number(people) === 0) return;
+    if (people === '') {
+      setPeopleRequired(true);
+      return;
+    }
+
+    if (Number(people) === 0) {
+      setMessErrorPeople(true);
+      return;
+    }
+
+    setPeopleRequired(false);
+    setMessErrorPeople(false);
 
     const percent = tip / 100;
 
@@ -114,10 +130,11 @@ const IncomeData = ({
       <div className='IncomeData-numOfPeople'>
         <div className='IncomeData-numOfPeople-blockMess'>
           <div className='IncomeData-numOfPeople-text'>Number of People</div>
-          <div className='IncomeData-numOfPeople-text-errMess'>{messErrorPeople ? "Can't be zero" : ''}</div>
+          <div className='IncomeData-numOfPeople-text-errMess'>{messErrorPeople ? "Can't be zero" : peopleRequired ? "First enter count of people" : ""}
+</div>
         </div>
 
-        <div className={messErrorPeople ? 'IncomeData-numOfPeople-blockInputData-error' : 'IncomeData-numOfPeople-blockInputData'}>
+        <div className={messErrorPeople || peopleRequired ? 'IncomeData-numOfPeople-blockInputData-error' : 'IncomeData-numOfPeople-blockInputData'}>
           <div className='IncomeData-numOfPeople-blockInputData-blockImg'>
             <img className='IncomeData-numOfPeople-blockInputData-blockImg-img' src={persom} alt=""/>
           </div>
